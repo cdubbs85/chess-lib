@@ -5,6 +5,12 @@ import org.apache.commons.lang3.ArrayUtils;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Keep a move history
+ * Keep a snapshot of the board history?
+ * Board constructor with cusotm setup
+ */
+
 public class Chessboard {
     private static final int l = 8;
     private static final Space[][] board;
@@ -30,7 +36,7 @@ public class Chessboard {
     private static String[] ranks = new String[]{"1", "2", "3", "4", "5", "6", "7", "8"};
 
     public Chessboard() {
-   }
+    }
 
     public void print() {
         print(Piece.Color.WHITE);
@@ -71,6 +77,7 @@ public class Chessboard {
             }
             System.out.println(rs);
         }
+
         String header = " ";
         for (int i = files.length - 1; i >= 0; i--) {
             header += files[i];

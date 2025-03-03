@@ -16,14 +16,38 @@ public class Space {
     }
 
     private final Color color;
-    private boolean occupied;
+    private Piece piece;
+
+    public Space(Color color, Piece piece) {
+        this.color = color;
+        this.piece = piece;
+    }
 
     public Space(Color color) {
-       this.color = color;
-       this.occupied = false;
+        this(color, null);
     }
 
     public Color getColor() {
         return this.color;
+    }
+
+    public boolean occupied() {
+        return this.piece != null;
+    }
+
+    public boolean place(Piece piece) {
+        if (!occupied()) {
+            this.piece = piece;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public Piece uplace() {
+        Piece temp = this.piece;
+        this.piece = null;
+        return temp;
     }
 }
